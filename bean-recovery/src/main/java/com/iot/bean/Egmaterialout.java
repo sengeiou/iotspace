@@ -1,0 +1,20 @@
+package com.iot.bean;
+
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
+
+@Data
+public class Egmaterialout implements Serializable {
+    private Integer id;
+    private Integer treatmentplantid;
+    private Integer gmaterialcategoryid;
+    private Integer number;
+    private Double weight;
+    private String source;
+    private Date time;
+    private String note;
+    private Integer dataid;
+    private static final long serialVersionUID = 1L;
+}

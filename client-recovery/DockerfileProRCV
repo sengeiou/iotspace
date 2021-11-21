@@ -1,0 +1,2 @@
+FROM java:8
+ADD target/client-recovery-1.0.0.jar client-recovery.jar

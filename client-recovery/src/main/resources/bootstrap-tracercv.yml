@@ -1,0 +1,56 @@
+server:
+  port: 9997
+
+domain: trace
+
+eureka:
+  instance:
+#    hostname: ${domain}.iotspace.net
+#    ip-address: ${domain}.iotspace.net
+    hostname: 39.102.76.50
+    ip-address: 39.102.76.50
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://39.102.76.50:8976/eureka/
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: client-recovery
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 50MB
+  jackson:
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: true
+
+ribbon:
+  OkToRetryOnAllOperations: false
+  ReadTimeout: 120000
+  ConnectTimeout: 30000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+feign:
+  hystrix:
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+  file: logs/client-recovery.log

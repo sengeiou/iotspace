@@ -1,0 +1,19 @@
+server:
+  port: 8976
+
+domain: trace
+
+spring:
+  application:
+    name: server-eureka
+
+eureka:
+  instance:
+    hostname: 39.102.76.50
+    ip-address: 39.102.76.50
+#    hostname: 39.102.76.50
+#    ip-address: 39.102.76.50
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://39.102.76.50:8976/eureka/
